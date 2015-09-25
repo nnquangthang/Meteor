@@ -1,0 +1,33 @@
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<title>Leaderboard</title>
+</head>
+<body>
+	{{> loginButtons}}
+	<h1>Leaderboard</h1>
+	{{> leaderboard}}
+
+</body>
+
+<template name="leaderboard">
+	<ul>
+		{{playerCount}}
+		{{#each player}}
+			<li class="player {{selectedClass}}">{{name}}: {{score}}</li>
+		{{/each}}
+	</ul>
+	{{#if currentUser}}
+		<p>|| Selected Player: <strong>{{showSelectedPlayer.name}}</strong> ||</p>
+		<input type="button" class="increment" value="Give 5 points">
+		<input type="button" class="decrement" value="Take 5 points">
+		<input type="button" class="remove" value="Remove Player">
+		{{> addPlayerForm}}
+	{{/if}}
+</template>
+
+<template name="addPlayerForm">
+		<form>
+			<input type="text" name="playerName">
+			<input type="submit" value="Add Player">
+		</form>
+</template>

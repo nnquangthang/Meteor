@@ -1,0 +1,7 @@
+/* CSS declarations go here */
+body{
+	font-family: 'Open Sans', sans-serif;
+}
+.selected{
+	background: yellow;
+}
